@@ -50,7 +50,9 @@ defaults = {'FFTSize', 2, ...
     'bit_growth_chart', [0 0]};
 
 % Retrieve values from mask fields.
-FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
+disp('in biplex_init_xblock')
+varargin{:}
+FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:})
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
 add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
@@ -89,6 +91,8 @@ xlsub2_of = xOutport('of');
 xlsub2_biplex_core_out1 = xSignal;
 xlsub2_biplex_core_out2 = xSignal;
 xlsub2_biplex_core_out3 = xSignal;
+disp('right before biplex_core_init')
+FFTSize
 xlsub2_biplex_core_sub = xBlock(struct('source', str2func('fft_biplex_core_init_xblock'), 'name', 'biplex_core'), ...
                                         {[blk,'/biplex_core'], ...
                                         'FFTSize', FFTSize,...

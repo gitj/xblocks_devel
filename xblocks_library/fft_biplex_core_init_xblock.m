@@ -66,7 +66,7 @@ defaults = {'FFTSize', 2, ...
     'bit_growth_chart', [0 0]};
 
 % Retrieve values from mask fields.
-FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
+FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:})
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
 add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
@@ -157,6 +157,7 @@ for a=1:FFTSize,
 
 	use_hdl = 'on';
 	use_embedded = 'off';
+    use_dsp48_mults = 0;
 	if strcmp(specify_mult, 'on'),
 		if (mult_spec(a) == 2),
 			use_hdl = 'on';
@@ -187,7 +188,7 @@ for a=1:FFTSize,
 	stage_sync_out = xSignal;
 	
 	stage_outports = {stage_out1, stage_out2, stage_of, stage_sync_out};
-	use_dsp48_mults
+%	use_dsp48_mults
 	xBlock( struct('name', stage_name, 'source', str2func('fft_stage_n_init_xblock')), ...
 		{ [blk,'/',stage_name], ...
 			'FFTSize', FFTSize, ...
