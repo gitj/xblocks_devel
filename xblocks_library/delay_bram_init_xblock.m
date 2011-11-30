@@ -28,7 +28,7 @@ defaults = { ...
     'count_using_dsp48', 0};
 
 n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
-latency = get_var('latency', 'defaults', defaults, varargin{:});
+latency = get_var('latency', 'defaults', defaults, varargin{:})
 bram_latency = get_var('bram_latency', 'defaults', defaults, varargin{:});
 arch = get_var('arch', 'defaults', defaults, varargin{:});
 count_using_dsp48 = get_var('count_using_dsp48', 'defaults', defaults, varargin{:});

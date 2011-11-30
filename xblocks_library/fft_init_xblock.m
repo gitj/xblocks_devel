@@ -47,8 +47,8 @@ defaults = { ...
 };
 
 % Retrieve values from mask fields.
-FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:});
-n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:});
+FFTSize = get_var('FFTSize', 'defaults', defaults, varargin{:})
+n_inputs = get_var('n_inputs', 'defaults', defaults, varargin{:})
 input_bit_width = get_var('input_bit_width', 'defaults', defaults, varargin{:});
 coeff_bit_width = get_var('coeff_bit_width', 'defaults', defaults, varargin{:});
 add_latency = get_var('add_latency', 'defaults', defaults, varargin{:});
@@ -140,6 +140,7 @@ if (n_inputs == 0)
     xlsub2_fft_biplex_out2 = xSignal;
     xlsub2_fft_biplex_out3 = xSignal;
     xlsub2_fft_biplex_out4 = xSignal;
+    
     xlsub2_fft_biplex_sub = xBlock(struct('source', str2func('fft_biplex_init_xblock'), 'name', 'fft_biplex'), ...
                                         {[blk,'/fft_biplex'], ...
                                         'FFTSize', FFTSize-n_inputs,...
